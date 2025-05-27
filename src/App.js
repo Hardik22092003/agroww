@@ -1,8 +1,19 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import AdminDashboard from "./admin/AdminDashboard";
+import FarmerDashboard from "./farmer/FarmerDashboard";
+import InvestorDashboard from "./investor/InvestorDashboard";
+
 function App() {
   return (
-    <div className="text-3xl font-bold underline text-primary">
-      Tailwind is working 🚀
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/farmer" element={<FarmerDashboard />} />
+        <Route path="/investor" element={<InvestorDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

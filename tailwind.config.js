@@ -5,13 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-       colors: {
-        background: "#f7f9f5",
-        text: "#2e2e2e",
-        primary: "#228B22",     // Forest green
-        secondary: "#F4A300",   // Crop yellow
-        investor: "#0077b6",    // Deep blue
-        soil: "#8B4513",        // Soil brown
+        colors: {
+        primary: '#5E81F4',      // bluish violet
+    secondary: '#6EE7B7',    // green accent
+    dark: '#0F172A',         // dark background
+    light: '#F8FAFC',        // light background
+    accent: '#A78BFA',       // soft purple
       },
     },
   },

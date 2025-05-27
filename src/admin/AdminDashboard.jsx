@@ -1,10 +1,19 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Sidebar from "./components/sidebar";
+import Dashboard from "./pages/Dashboard";
 
-export default function AdminDashboard() {
+const AdminDashboard = () => {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-primary">Admin Dashboard</h1>
-      <p className="text-gray-700 mt-4">Welcome, Admin! Monitor investments, farmer listings, and approve requests.</p>
+    <div className="flex bg-background min-h-screen">
+      <Sidebar />
+      <div className="flex-1 p-8">
+        <Routes>
+          <Route index element={<Dashboard />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
+
+export default AdminDashboard;

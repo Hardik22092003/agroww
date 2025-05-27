@@ -1,5 +1,8 @@
 import React from "react";
 import { FiUsers, FiUserCheck, FiBriefcase, FiDollarSign } from "react-icons/fi";
+import Charts from "../../components/Charts";
+
+
 
 const Dashboard = () => {
   const stats = [
@@ -10,19 +13,25 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      {stats.map(({ title, value, color, icon }) => (
-        <div
-          key={title}
-          className={`rounded-lg shadow-lg p-6 text-white ${color} flex flex-col justify-center`}
-        >
-          <div className="flex items-center space-x-3">
-            <div>{icon}</div>
-            <p className="text-sm font-semibold">{title}</p>
+    <div className="p-6 space-y-10">
+      {/* Dashboard Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map(({ title, value, color, icon }) => (
+          <div
+            key={title}
+            className={`rounded-lg shadow-lg p-6 text-white ${color} flex flex-col justify-center`}
+          >
+            <div className="flex items-center space-x-3">
+              <div>{icon}</div>
+              <p className="text-sm font-semibold">{title}</p>
+            </div>
+            <h2 className="mt-4 text-3xl font-bold">{value}</h2>
           </div>
-          <h2 className="mt-4 text-3xl font-bold">{value}</h2>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      {/* Charts Section */}
+      <Charts />
     </div>
   );
 };

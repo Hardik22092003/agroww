@@ -13,6 +13,8 @@ import FAQ from "./pages/FAQ";
 import AboutUs from "./pages/AboutUs";
 import HelpDesk from "./pages/HelpDesk";
 import AdminLogin from "./pages/AdminLogin";
+import FarmerLogin from "./pages/FarmerLogin";
+import InvestorLogin from "./pages/InvestorLogin";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/help" element={<HelpDesk />} />
         <Route path="/contact" element={<Contact />} />     
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/login/farmer" element={<FarmerLogin />} />
+<Route path="/login/investor" element={<InvestorLogin />} />
       </Routes>
     </Router>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const landData = [
   {
@@ -69,7 +69,6 @@ export default function InvestorDashboard() {
   const [riskFilter, setRiskFilter] = useState("All");
   const [sortDuration, setSortDuration] = useState("none");
 
-  // Filter and sort logic
   const filteredLands = landData
     .filter((land) => {
       const matchesSearch =
@@ -79,33 +78,56 @@ export default function InvestorDashboard() {
       return matchesSearch && matchesRisk;
     })
     .sort((a, b) => {
-      if (sortDuration === "Shortest") return parseInt(a.duration) - parseInt(b.duration);
-      if (sortDuration === "Longest") return parseInt(b.duration) - parseInt(a.duration);
+      if (sortDuration === "Shortest")
+        return parseInt(a.duration) - parseInt(b.duration);
+      if (sortDuration === "Longest")
+        return parseInt(b.duration) - parseInt(a.duration);
       return 0;
     });
 
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <div className="w-64 bg-green-800 text-white p-6 space-y-4">
+      <div className="w-64 bg-green-800 text-white p-6 space-y-4 min-h-screen">
         <h2 className="text-2xl font-bold mb-6">Investor Panel</h2>
         <nav className="space-y-3">
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Dashboard Overview</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Document Verification</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Transaction History</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">My Portfolio & Stocks</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Wallet & Balance</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Settings</a>
-          <a href="#" className="block hover:bg-green-700 p-2 rounded">Help & Support</a>
-          <a href="#" className="block hover:bg-red-700 p-2 rounded">Logout</a>
+          <Link to="/investor" className="block hover:bg-green-700 p-2 rounded">
+            Dashboard Overview
+          </Link>
+          <Link
+            to="/investor/transactions"
+            className="block hover:bg-green-700 p-2 rounded"
+          >
+            Transaction History
+          </Link>
+          <Link
+            to="/investor/wallet"
+            className="block hover:bg-green-700 p-2 rounded"
+          >
+            Wallet & Balance
+          </Link>
+          <Link
+            to="/investor/settings"
+            className="block hover:bg-green-700 p-2 rounded"
+          >
+            Settings
+          </Link>
+          <Link
+            to="/investor/help"
+            className="block hover:bg-green-700 p-2 rounded"
+          >
+            Help & Support
+          </Link>
         </nav>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 p-8">
-        <h1 className="text-3xl font-bold mb-6 text-green-700">Available Farmlands for Investment</h1>
+        <h1 className="text-3xl font-bold mb-6 text-green-700">
+          Available Farmlands for Investment
+        </h1>
 
-        {/* Filters Section */}
+        {/* Filters */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <input
             type="text"
@@ -138,16 +160,36 @@ export default function InvestorDashboard() {
         {/* Land Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredLands.map((land) => (
-            <div key={land.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src={land.image} alt={land.crop} className="h-48 w-full object-cover" />
+            <div
+              key={land.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <img
+                src={land.image}
+                alt={land.crop}
+                className="h-48 w-full object-cover"
+              />
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-green-800">{land.location}</h2>
-                <p className="text-gray-600">Crop: <span className="font-medium">{land.crop}</span></p>
-                <p className="text-gray-600">Risk: <span className="text-yellow-700 font-semibold">{land.risk}</span></p>
+                <h2 className="text-xl font-semibold text-green-800">
+                  {land.location}
+                </h2>
+                <p className="text-gray-600">
+                  Crop: <span className="font-medium">{land.crop}</span>
+                </p>
+                <p className="text-gray-600">
+                  Risk:{" "}
+                  <span className="text-yellow-700 font-semibold">
+                    {land.risk}
+                  </span>
+                </p>
                 <p className="text-gray-600">Duration: {land.duration}</p>
-                <p className="text-gray-600">Units Available: {land.unitsAvailable}</p>
+                <p className="text-gray-600">
+                  Units Available: {land.unitsAvailable}
+                </p>
                 <p className="text-gray-600">Units Sold: {land.unitsSold}</p>
-                <p className="text-green-700 font-bold mt-2">₹{land.pricePerUnit} / unit</p>
+                <p className="text-green-700 font-bold mt-2">
+                  ₹{land.pricePerUnit} / unit
+                </p>
                 <p className="text-sm mt-2 text-gray-500">{land.description}</p>
                 <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full">
                   Invest Now

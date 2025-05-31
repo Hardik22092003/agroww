@@ -3,6 +3,7 @@ import { FaTractor, FaFileContract, FaHome, FaUpload } from "react-icons/fa";
 import Status from "./Status";
 import FarmerDashAccess from "./FarmerDashAccess";
 import ContractForm from "./_FarmerComponents/ContractForm";
+import GetAllContracts from "./GetallContracts";
 
 export default function FarmerDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -23,6 +24,13 @@ export default function FarmerDashboard() {
                 className="w-full max-w-3xl mx-auto rounded-lg shadow-md"
               />
             </div>
+            <div>
+              <p className="text-2xl text-green-600 font-bold">Your Contracts</p>
+              <div className="mt-4">
+            <GetAllContracts/>
+                 </div>
+
+               </div>
           </div>
         );
       case "land":

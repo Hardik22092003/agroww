@@ -6,7 +6,7 @@ function GetAllContracts() {
   
    
     useEffect(()=>{
-        axios.get(`http://localhost:8080/farmer/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
+        axios.get(`https://agroww.onrender.com/farmer/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
                 console.log(res.data);
                 setContracts(res.data);
             }).catch((err)=>{
@@ -16,7 +16,8 @@ function GetAllContracts() {
 
     },[])
     return ( <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
+      <hr className="mb-3"></hr>
+        <div className=" flex flex-wrap gap-6 ml-0 pl-4 w-full text-start">
             <ToastContainer />
           {contracts.map((land) => (
             <div key={land.id} className="bg-white rounded-lg shadow-md overflow-hidden">

@@ -36,8 +36,9 @@ function ContractForm() {
    
       axios.post(`https://agroww.onrender.com/farmer/${localStorage.getItem("username")}/createcontract`, states)
       .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           // Handle success response
+          window.location.href = "/farmer";
       }).catch((err)=>{
         console.log(err);
 

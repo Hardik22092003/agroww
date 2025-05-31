@@ -183,7 +183,7 @@ export default function InvestorDashboard() {
               <img src={"/land4.jpg"} alt={"img "} className="h-48 w-full object-cover" />
               <div className="p-4">
                 <h2 className="text-xl font-semibold text-green-800">{land.contractName}</h2>
-                <p className="text-gray-600">Crop: <span className="font-medium">{land.totalLandSize}</span></p>
+                <p className="text-gray-600">Crop: <span className="font-medium">{"Beans"}</span></p>
                 <p className="text-gray-600">Risk: <span className="text-yellow-700 font-semibold">{land.expectedROI}%</span></p>
                 <p className="text-gray-600">Duration: {36}</p>
                 <div className="flex justify-between">

@@ -62,7 +62,7 @@ export default function FarmerLogin() {
             Login
           </button>
           <p className="text-sm hover:underline cursor-pointer text-center" onClick={()=>{
-            window.location.href = "/signup/investor";
+            window.location.href = "/signup/farmer";
           }}>Signup</p>
         </form>
       </div>

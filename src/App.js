@@ -22,6 +22,7 @@ import InvestorLogin from "./pages/InvestorLogin";
 import GetAllContracts from "./farmer/GetallContracts";
 import FarmerSignup from "./pages/FarmerSignup";
 import InvestorSignup from "./pages/InvestorSignup";
+import Unauthorized from "./pages/ErrorPage";
 
 function App() {
   let username = localStorage.getItem("username");
@@ -57,7 +58,6 @@ function App() {
         <Route path="/farmer" element={<FarmerDashboard />} />
             {/* <Route path="/farmer/dashboard" element={<FarmerDashboard />} /> */}
           <Route path="/farmer/allcontracts" element={<GetAllContracts />} />
-
         {/* Investor */}
         <Route path="/investor" element={<InvestorDashboard />} />
         <Route path="/investor/transactions" element={<TransactionHistory />} />
@@ -65,6 +65,7 @@ function App() {
         <Route path="/investor/settings" element={<InvestorSettings />} />
         <Route path="/investor/help" element={<HelpSupport />} />
 
+<Route path="*" element={<Unauthorized />} />
       </Routes>
     </Router>
   );

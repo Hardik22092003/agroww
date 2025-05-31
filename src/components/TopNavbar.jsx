@@ -60,7 +60,7 @@ const TopNavbar = () => {
         <Link to="/about" className="hover:text-indigo-600">About Us</Link>
         <Link to="/help" className="hover:text-indigo-600">Help Desk</Link>
         <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
-
+       
         {/* Language Switcher */}
         <div className="relative" ref={langRef}>
           <button

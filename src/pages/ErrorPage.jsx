@@ -16,7 +16,7 @@ function Unauthorized() {
           <Link to="/" className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
             Go to Home
           </Link>
-          <Link to="/login" className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded">
+          <Link to="/login/farmer" className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded">
             Login with different account
           </Link>
         </div>

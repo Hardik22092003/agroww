@@ -7,7 +7,7 @@ function PopupInvest({contractDetails,close}) {
     let [units, setUnits] = useState(contractDetails.units || 1);
     let invest=()=>{
         console.log("Investing in contract:", contractDetails);
-        axios.post(`http://localhost:8080/investor/${contractDetails.userName}/newinvest`,{
+        axios.post(`https://agroww.onrender.com/investor/${contractDetails.userName}/newinvest`,{
             contractId: contractDetails.contractId,
             unitsBought: units,
             PricePerUnit: contractDetails.unitPrice,

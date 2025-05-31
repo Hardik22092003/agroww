@@ -7,8 +7,11 @@ export default function FarmerLogin() {
   })
   let clicker=(e)=>{
     e.preventDefault();
-
-    axios.post("http://localhost:8080/farmer/login", details)
+    if(details.username === "" || details.password === "") {
+      alert("Please fill in all fields");
+      return;
+    }
+    axios.post("https://agroww.onrender.com/farmer/login", details)
       .then((res) => {
         console.log(res.data);
 

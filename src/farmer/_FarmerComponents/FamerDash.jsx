@@ -1,7 +1,7 @@
 import axios from "axios";
 function FarmerDashComp() {
     let getAllDocs=()=>{
-            axios.get("http://localhost:8080/farmer/admin1/allcontracts").then((res)=>{
+            axios.get("https://agroww.onrender.com/farmer/admin1/allcontracts").then((res)=>{
                 console.log(res.data);
 
             }).catch((err)=>{
@@ -25,8 +25,8 @@ function FarmerDashComp() {
 </svg>
                 </div>
             <div className="">
-                <p className="text-2xl font-bold">Check Your Documents</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p className="text-2xl font-bold">Upload Aadhar Card</p>
+                <p>Upload a jpg file of your Aadhaar Card not larger than 100kb.</p>
             </div>
             </div>
             </div>

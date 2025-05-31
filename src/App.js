@@ -17,6 +17,7 @@ import FarmerLogin from "./pages/FarmerLogin";
 import InvestorLogin from "./pages/InvestorLogin";
 import GetAllContracts from "./farmer/GetallContracts";
 import FarmerSignup from "./pages/FarmerSignup";
+import InvestorSignup from "./pages/InvestorSignup";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/login/farmer" element={<FarmerLogin />} />
         <Route path="/signup/farmer" element={<FarmerSignup />} />
+        <Route path="/signup/investor" element={<InvestorSignup />} />
         <Route path="/farmer/allcontracts" element={<GetAllContracts />} />
 <Route path="/login/investor" element={<InvestorLogin />} />
       </Routes>

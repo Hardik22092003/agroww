@@ -8,8 +8,11 @@ export default function InvestorLogin() {
     })
       let clicker=(e)=>{
         e.preventDefault();
-    
-        axios.post("http://localhost:8080/investor/login", details)
+        if(details.username === "" || details.password === "") {
+          alert("Please fill in all fields");
+          return;
+        }
+        axios.post("https://agroww.onrender.com/investor/login", details)
           .then((res) => {
             console.log(res.data);
     
@@ -53,9 +56,14 @@ export default function InvestorLogin() {
             name="password"
             onChange={onChangeHandler}
           />
+          <p className="text-end my-2 text-blue-700 underline">Reset Password ?</p>
           <button onClick={clicker} className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded">
             Login
           </button>
+          <p className="text-sm hover:underline cursor-pointer text-center" onClick={()=>{
+            window.location.href = "/signup/investor";
+          }}>Signup</p>
+
 
         </form>
       </div>

@@ -8,9 +8,13 @@ function FarmerSignup() {
     password: ""
   })
   let clicker=(e)=>{
+    if(details.nameFarmer === "" || details.email === "" || details.farmerPhone === "" || details.password === "") {
+      alert("Please fill in all fields");
+      return;
+    }
     e.preventDefault();
 
-    axios.post("http://localhost:8080/farmer/adduser", details)
+    axios.post("https://agroww.onrender.com/farmer/adduser", details)
       .then((res) => {
         console.log(res.data);
 

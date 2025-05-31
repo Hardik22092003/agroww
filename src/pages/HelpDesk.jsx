@@ -26,7 +26,7 @@ const HelpDesk = () => {
         <ul className="text-blue-600 underline list-disc list-inside">
           <li><a href="/faq">Visit our FAQ</a></li>
           <li><a href="/contact">Contact Form</a></li>
-          <li><a href="/about-us">About the Agroww team</a></li>
+          <li><a href="/about">About the Agroww team</a></li>
         </ul>
       </div>
     </div>

@@ -34,7 +34,7 @@ function ContractForm() {
       
       setstates({...states,["nameFarmer"]:states.firstName + ' ' + states.lastName})
    
-      axios.post(`http://localhost:8080/farmer/${localStorage.getItem("username")}/createcontract`, states)
+      axios.post(`https://agroww.onrender.com/farmer/${localStorage.getItem("username")}/createcontract`, states)
       .then((response) => {
           console.log(response.data);
           // Handle success response

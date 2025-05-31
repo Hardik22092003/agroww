@@ -33,10 +33,12 @@ const TopNavbar = () => {
 
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-      <div className="text-xl font-bold text-indigo-700">Agroww</div>
+      <div className="text-xl font-bold text-emerald-600">Agroww</div>
 
       <div className="flex gap-6 items-center text-gray-800 text-sm font-medium">
-        <Link to="/" className="hover:text-indigo-600">Home</Link>
+        <Link to="/" className="hover:text-indigo-600">
+          Home
+        </Link>
 
         {/* Login Dropdown */}
         <div className="relative" ref={loginRef}>
@@ -49,18 +51,49 @@ const TopNavbar = () => {
           </button>
           {loginOpen && (
             <div className="absolute bg-white shadow-lg rounded-md mt-2 w-40 z-10 animate-fadeIn">
-              <Link to="/login/farmer" className="block px-4 py-2 hover:bg-gray-100">Farmer</Link>
-              <Link to="/login/investor" className="block px-4 py-2 hover:bg-gray-100">Investor</Link>
-              <Link to="/admin/login" className="block px-4 py-2 hover:bg-gray-100">Admin</Link>
+              <Link
+                to="/login/farmer"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Farmer
+              </Link>
+              <Link
+                to="/login/investor"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Investor
+              </Link>
+              <Link
+                to="/admin/login"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Admin
+              </Link>
             </div>
           )}
         </div>
 
+<<<<<<< HEAD
         <Link to="/faq" className="hover:text-indigo-600">FAQ</Link>
         <Link to="/about" className="hover:text-indigo-600">About Us</Link>
         <Link to="/help" className="hover:text-indigo-600">Help Desk</Link>
         <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
        
+=======
+        <Link to="/faq" className="hover:text-indigo-600">
+          FAQ
+        </Link>
+        <Link to="/about" className="hover:text-indigo-600">
+          About Us
+        </Link>
+        <Link to="/help" className="hover:text-indigo-600">
+          Help Desk
+        </Link>
+        <Link to="/contact" className="hover:text-indigo-600">
+          Contact
+        </Link>
+
+>>>>>>> 05283ef (Updated Home)
         {/* Language Switcher */}
         <div className="relative" ref={langRef}>
           <button

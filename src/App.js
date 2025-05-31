@@ -45,6 +45,7 @@ function App() {
         <Route path="/signup/farmer" element={<FarmerSignup />} />
         <Route path="/signup/investor" element={<InvestorSignup />} />
         <Route path="/farmer/allcontracts" element={<GetAllContracts />} />
+<<<<<<< HEAD
 {/* <Route path="/login/investor" element={<InvestorLogin />} /> */}
 
         <Route path="/login/investor" element={<InvestorLogin />} />
@@ -66,6 +67,9 @@ function App() {
         <Route path="/investor/help" element={<HelpSupport />} />
 
 <Route path="*" element={<Unauthorized />} />
+=======
+        <Route path="/login/investor" element={<InvestorLogin />} />
+>>>>>>> 05283ef (Updated Home)
       </Routes>
     </Router>
   );

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 function ContractForm() {
     let [states,setstates]=useState({
         firstName: '',
@@ -37,9 +38,13 @@ function ContractForm() {
       axios.post(`https://agroww.onrender.com/farmer/${localStorage.getItem("username")}/createcontract`, states)
       .then((response) => {
           // console.log(response.data);
+          toast.success("Contract created successfully!", {
+            position: "top-right"});
           // Handle success response
           window.location.href = "/farmer";
       }).catch((err)=>{
+        toast.error("Error creating contract. Please try again.", {
+          position: "top-right"});
         console.log(err);
 
       })

@@ -15,11 +15,29 @@ function PopupInvest({contractDetails,close}) {
             farmerName: contractDetails.farmerName,
             nameContract: contractDetails.nameContract
         }).then((res)=>{
+            toast.success("Investment successful!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             console.log(res.data);
             console.log("Investment successful");
             toast.success("Investment successful!");
             close();
         }).catch((err)=>{
+            toast.error("Investment failed. Please try again.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }); 
             console.log(err);
         })
     }
@@ -45,10 +63,11 @@ function PopupInvest({contractDetails,close}) {
     };
     return (
         <div className="fixed inset-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center">
+            <ToastContainer />
             <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Investment Details</h2>
                 <p className="mb-4">You are investing in XYZ contract</p>
-                
+
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="units">
                         Contract Name

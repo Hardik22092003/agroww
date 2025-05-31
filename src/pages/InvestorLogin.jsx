@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 export default function InvestorLogin() {
   let [details, setDetails] = useState({
       username: "",
@@ -24,14 +25,19 @@ let [isLoading, setIsLoading] = useState(false);
               localStorage.setItem("role", "investor");
               localStorage.setItem("email", res.data.email);
               localStorage.setItem("id", res.data.id);
-            } else {
-              alert("Invalid credentials");
-              setIsLoading(false);
-            }
+            } 
           })
           .catch((err) => {
-            console.error(err);
-            alert("An error occurred while logging in.");
+            // console.error(err);
+            toast.error("Invalid credentials", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           });
       }
   let onChangeHandler = (e) => {
@@ -42,6 +48,7 @@ let [isLoading, setIsLoading] = useState(false);
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-100">
+      <ToastContainer/>
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-blue-700 flex gap-2 items-center"><span>Investor Login</span>
         <p className="text-white text-md bg-purple-500 hover:bg-purple-600 p-1 w-fit text-center" onClick={()=>{

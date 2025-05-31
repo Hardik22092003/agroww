@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast,ToastContainer } from "react-toastify";
 export default function FarmerLogin() {
   let [isLoading, setIsLoading] = useState(false);
   let [details, setDetails] = useState({
@@ -25,13 +26,23 @@ export default function FarmerLogin() {
           localStorage.setItem("email", res.data.email);
           localStorage.setItem("id", res.data.id);
         } else {
-          alert("Invalid credentials");
+          toast.error("Invalid credentials", {
+            position: "top-right"});
             setIsLoading(false);
         }
       })
       .catch((err) => {
         console.error(err);
-        alert("An error occurred while logging in.");
+        // alert("An error occurred while logging in.");
+        toast.error("Invalid credentials", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   }
   let onChangeHandler = (e) => {
@@ -43,6 +54,7 @@ export default function FarmerLogin() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100">
+      <ToastContainer />
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-green-700 flex gap-2"><span>Farmer Login</span>
           

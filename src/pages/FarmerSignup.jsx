@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { toast,ToastContainer } from 'react-toastify';
 function FarmerSignup() {
      let [details, setDetails] = useState({
     nameFarmer: "",
@@ -20,10 +21,28 @@ function FarmerSignup() {
 
         console.log("Signup successful");
         window.location.href = "/login/farmer";
+        toast.success("Signup Successful", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((err) => {
         console.error(err);
-        alert("An error occurred while logging in.");
+        // alert("An error occurred while logging in.");
+        toast.error("User already exists", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   }
   let onChangeHandler = (e) => {
@@ -36,6 +55,7 @@ function FarmerSignup() {
     return (
 
         <div className="min-h-screen flex items-center justify-center bg-green-100">
+          <ToastContainer />
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-4 text-green-700">Farmer Signup</h2>
         <form>

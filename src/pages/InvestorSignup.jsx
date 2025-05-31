@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+  import { ToastContainer, toast } from 'react-toastify';
 function InvestorSignup() {
      let [details, setDetails] = useState({
         nameInvestor: "",
@@ -16,15 +17,24 @@ function InvestorSignup() {
          setIsLoading(true);
         axios.post("https://agroww.onrender.com/investor/adduser", details)
           .then((res) => {
-            console.log(res.data);
-    
-            console.log("Signup successful");
-            window.location.href = "/login/investor";
-            setIsLoading(false);
-          })
+            
+                
+
+                console.log(res.data);
+                
+                console.log("Signup successful");
+                window.location.href = "/login/investor";
+                setIsLoading(false);
+                toast.success("Signup Succesfull", {
+                  position: "top-right"});
+            })
+        
           .catch((err) => {
+            toast.error("User already exists", {
+                  position: "top-right"});
+           
             console.error(err);
-            alert("An error occurred while logging in.");
+            // alert("An error occurred while logging in.");
             setIsLoading(false);
           });
       }
@@ -39,6 +49,7 @@ function InvestorSignup() {
     
     return ( <div className="min-h-screen flex items-center justify-center bg-blue-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+         <ToastContainer />
         <h2 className="text-2xl font-bold mb-4 text-blue-700">Investor Signup</h2>
         <form>
           <input

@@ -1,6 +1,9 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import axios from "axios";
 const Home = () => {
+    useEffect(() => {
+      axios.get("https://agroww.onrender.com/farmer/h1")
+    }, []);
   return (
     <div className="font-sans">
 

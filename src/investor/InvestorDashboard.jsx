@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Search, Filter } from "lucide-react";
-
+import axios from "axios";
+import PopupInvest from "./_InvestorComponents/PopupInvest";
 const landData = [
   {
     id: 1,
@@ -84,7 +85,46 @@ export default function InvestorDashboard() {
       return 0;
     });
 
+
+    let [contracts,setContracts]=useState([]);
+      let [contractDetails,setContractDetails]=useState({
+        nameContract: "",
+        contractId:0,
+        unitsBought:0,
+        unitPrice: 0,
+        unitsLeft: 0,
+        userName:"",
+        farmerName: ""
+    });
+        useEffect(()=>{
+            axios.get(`http://localhost:8080/investor/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
+                    console.log(res.data);
+                    setContracts(res.data);
+                }).catch((err)=>{
+                    console.log(err);
+    
+                })
+    
+        },[])
+        let [popupVisible, setPopupVisible] = useState(false);
+        let buttonPopup=(e)=>{
+        let idx = e.target.name;
+        let selectedContract = contracts[idx];
+        setPopupVisible(true);
+        setContractDetails({
+            nameContract: selectedContract.contractName,
+            contractId: selectedContract.id,
+            unitsBought: 0,
+            unitPrice: selectedContract.unitPrice,
+            unitsLeft: selectedContract.unitsLeft,
+            userName:localStorage.getItem("username"),
+            farmerName: selectedContract.farmerName
+        });
+        }
+
   return (
+    <div>
+
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
       <div className="w-64 bg-green-800 text-white p-6 space-y-4">
@@ -136,27 +176,39 @@ export default function InvestorDashboard() {
         </div>
 
         {/* Land Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredLands.map((land) => (
+        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+          {contracts.map((land,idx) => (
             <div key={land.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src={land.image} alt={land.crop} className="h-48 w-full object-cover" />
+              <img src={"/land4.jpg"} alt={"img "} className="h-48 w-full object-cover" />
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-green-800">{land.location}</h2>
-                <p className="text-gray-600">Crop: <span className="font-medium">{land.crop}</span></p>
-                <p className="text-gray-600">Risk: <span className="text-yellow-700 font-semibold">{land.risk}</span></p>
-                <p className="text-gray-600">Duration: {land.duration}</p>
-                <p className="text-gray-600">Units Available: {land.unitsAvailable}</p>
+                <h2 className="text-xl font-semibold text-green-800">{land.contractName}</h2>
+                <p className="text-gray-600">Crop: <span className="font-medium">{land.totalLandSize}</span></p>
+                <p className="text-gray-600">Risk: <span className="text-yellow-700 font-semibold">{land.expectedROI}%</span></p>
+                <p className="text-gray-600">Duration: {36}</p>
+                <div className="flex justify-between">
+                <p className="text-gray-600">Units Available: {land.unitsLeft}</p>
                 <p className="text-gray-600">Units Sold: {land.unitsSold}</p>
-                <p className="text-green-700 font-bold mt-2">₹{land.pricePerUnit} / unit</p>
-                <p className="text-sm mt-2 text-gray-500">{land.description}</p>
-                <button className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded w-full">
+                    </div>
+                <p className="text-green-700 font-bold mt-2">₹{land.unitPrice} / unit</p>
+                <p className="text-sm mt-2 text-gray-500">{
+                    "it is a xyz Land"}</p>
+                    
+                <button name={idx} onClick={buttonPopup} className="mt-4 bg-green-600  hover:bg-green-700 text-white px-4 py-2 rounded w-full" onClcik>
                   Invest Now
                 </button>
+                
               </div>
             </div>
           ))}
         </div>
+    </div>
       </div>
     </div>
+    <div hidden={!popupVisible}>
+
+          <PopupInvest contractDetails={contractDetails} close={()=> setPopupVisible(false)} />
+    </div>
+            </div>
   );
 }

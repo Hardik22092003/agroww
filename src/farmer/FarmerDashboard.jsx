@@ -9,7 +9,7 @@ export default function FarmerDashboard() {
   return (
     <div className="p-10 mx-auto">
       <h1 className="text-2xl">
-        <span className="text-3xl font-bold"> Welcome</span> Xyz,
+        <span className="text-3xl font-bold"> Welcome</span> {localStorage.getItem("username")},
       </h1>
 
       <h1 className="text-3xl font-bold text-green-700 mt-2">Farmer Dashboard</h1>

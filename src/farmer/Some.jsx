@@ -1,6 +1,6 @@
 function Some() {
     return (
-        <div className="my-10">
+        <div className="my-10 mx-auto">
             <p className="text-center text-3xl font-bold">Create New Investment</p>
             <p className="text-center">Investment is growth to Success</p>
             <div className="flex flex-col gap-6 items-center justify-center h-[100%]">
@@ -14,7 +14,9 @@ function Some() {
             
             <div className="flex">
                 <p className="p-2 bg-purple-600 text-white rounded">Create Now +</p>
-                <p className="p-2">Create Enquiry</p>
+                <p className="p-2" onClick={()=>{
+                    window.location.href = "/farmer";
+                }}>Create Enquiry</p>
             </div>
             </div>
         </div>

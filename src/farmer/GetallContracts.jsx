@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import Some from "./Some";
 function GetAllContracts() {
     let [contracts,setContracts]=useState([]);
   
@@ -19,7 +20,8 @@ function GetAllContracts() {
       <hr className="mb-3"></hr>
         <div className=" flex flex-wrap gap-6 ml-0 pl-4 w-full text-start">
             <ToastContainer />
-          {contracts.map((land) => (
+            {contracts.length === 0 ?<Some/>:
+          contracts.map((land) => (
             <div key={land.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <img src={"/land4.jpg"} alt={"img "} className="h-48 w-full object-cover" />
               <div className="p-4">
@@ -30,7 +32,7 @@ function GetAllContracts() {
                 <div className="flex justify-between">
                 <p className="text-gray-600">Units Available: {land.unitsLeft}</p>
                 <p className="text-gray-600">Units Sold: {land.unitsSold}</p>
-                    </div>
+                </div>
                 <p className="text-green-700 font-bold mt-2">₹{land.unitPrice} / unit</p>
                 <p className="text-sm mt-2 text-gray-500">{
                     "it is a xyz Land"}</p>
@@ -41,10 +43,11 @@ function GetAllContracts() {
                 <button className="mt-4  hover:bg-red-700 hover:text-white text-red-700 px-4 py-2 rounded w-full">
                     Delete Contract
                 </button >
-                        </div>
+                </div>
               </div>
             </div>
-          ))}
+          ))
+        }
         </div>
     </div> );
 }

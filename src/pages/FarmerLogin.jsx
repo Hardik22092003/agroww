@@ -40,7 +40,18 @@ export default function FarmerLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4 text-green-700">Farmer Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-green-700 flex gap-2"><span>Farmer Login</span>
+          
+
+        <p className="text-white text-md bg-purple-500 p-1 w-fit text-center" onClick={()=>{
+          localStorage.setItem("username", "xyz");
+          localStorage.setItem("role", "farmer");
+          localStorage.setItem("email", "xyz@gmail.com");
+          window.location.href = "/farmer";
+        }}>Bypass &rarr;</p>
+        
+        </h2>
+        
         <form>
           <input
             type="email"

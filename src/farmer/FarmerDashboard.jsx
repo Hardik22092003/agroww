@@ -1,13 +1,37 @@
-import React, { useState } from "react";
+import React, { use, useState ,useEffect} from "react";
 import { FaTractor, FaFileContract, FaHome, FaUpload } from "react-icons/fa";
 import Status from "./Status";
 import FarmerDashAccess from "./FarmerDashAccess";
 import ContractForm from "./_FarmerComponents/ContractForm";
 import GetAllContracts from "./GetallContracts";
+import { useNavigate } from "react-router-dom";
 
 export default function FarmerDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
-
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+    // Add debugging logs
+    console.log("Component mounted");
+    console.log("Username:", localStorage.getItem("username"));
+    console.log("Role:", localStorage.getItem("role"));
+    
+    const username = localStorage.getItem("username");
+    const role = localStorage.getItem("role");
+    
+    if (!username || role !== "farmer") {
+      console.log("Redirecting to farmer login...");
+      try {
+        navigate("/login/farmer", { replace: true });
+      } catch (err) {
+        console.error("Navigation error:", err);
+        // Fallback - try direct window location
+        window.location.href = "/login/farmer";
+      }
+    } else {
+      setIsLoading(false);
+    }
+  }, [navigate]);
   const renderContent = () => {
     switch (activeTab) {
       case "dashboard":

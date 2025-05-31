@@ -40,7 +40,14 @@ export default function InvestorLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4 text-blue-700">Investor Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-700 flex gap-2 items-center"><span>Investor Login</span>
+        <p className="text-white text-md bg-purple-500 p-1 w-fit text-center" onClick={()=>{
+          localStorage.setItem("username", "xyz");
+          localStorage.setItem("role", "investor");
+          localStorage.setItem("email", "xyz@gmail.com");
+          window.location.href = "/investor";
+        }}>Bypass &rarr;</p>
+        </h2>
         <form>
           <input
             type="text"

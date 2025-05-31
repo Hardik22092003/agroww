@@ -43,7 +43,7 @@ export default function FarmerLogin() {
         <h2 className="text-2xl font-bold mb-4 text-green-700 flex gap-2"><span>Farmer Login</span>
           
 
-        <p className="text-white text-md bg-purple-500 p-1 w-fit text-center" onClick={()=>{
+        <p className="text-white text-md bg-purple-500 hover:bg-purple-600 p-1 w-fit text-center" onClick={()=>{
           localStorage.setItem("username", "xyz");
           localStorage.setItem("role", "farmer");
           localStorage.setItem("email", "xyz@gmail.com");

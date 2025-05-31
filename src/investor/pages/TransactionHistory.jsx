@@ -41,7 +41,7 @@ let [contracts,setContracts]=useState([]);
           ))}
         </tbody>
       </table>
-      <div className="text-xl my-4">Investment</div>
+      <div className="text-2xl my-4 font-bold">Your Investment</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
           {contracts.map((land,idx) => (
             <div key={land.id} className="bg-white rounded-lg shadow-md overflow-hidden">

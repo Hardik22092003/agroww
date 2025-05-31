@@ -71,7 +71,7 @@ export default function FarmerLogin() {
         <form>
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Username"
             className="w-full p-2 border rounded mb-4"
             name="username"
             onChange={onChangeHandler}

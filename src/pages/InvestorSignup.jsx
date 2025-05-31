@@ -50,8 +50,15 @@ function InvestorSignup() {
     return ( <div className="min-h-screen flex items-center justify-center bg-blue-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
          <ToastContainer />
-        <h2 className="text-2xl font-bold mb-4 text-blue-700">Investor Signup</h2>
-        <form>
+        <h2 className="text-2xl font-bold mb-4 text-blue-700 flex gap-2 items-center"><span>Investor Signup</span>
+        <p className="text-white text-md bg-purple-500 hover:bg-purple-600 p-1 w-fit text-center" onClick={()=>{
+          localStorage.setItem("username", "xyz");
+          localStorage.setItem("role", "investor");
+          localStorage.setItem("email", "xyz@gmail.com");
+          window.location.href = "/investor";
+        }}>Bypass &rarr;</p>
+        </h2>
+         <form>
           <input
             type="text"
             placeholder="Username"

@@ -33,7 +33,7 @@ const TopNavbar = () => {
 
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-      <div className="text-xl font-bold text-emerald-600">Agroww</div>
+      <div className="text-xl font-bold text-emerald-600"><Link to="/">Agroww</Link></div>
 
       <div className="flex gap-6 items-center text-gray-800 text-sm font-medium">
         <Link to="/" className="hover:text-indigo-600">
@@ -73,13 +73,6 @@ const TopNavbar = () => {
           )}
         </div>
 
-<<<<<<< HEAD
-        <Link to="/faq" className="hover:text-indigo-600">FAQ</Link>
-        <Link to="/about" className="hover:text-indigo-600">About Us</Link>
-        <Link to="/help" className="hover:text-indigo-600">Help Desk</Link>
-        <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
-       
-=======
         <Link to="/faq" className="hover:text-indigo-600">
           FAQ
         </Link>
@@ -93,7 +86,6 @@ const TopNavbar = () => {
           Contact
         </Link>
 
->>>>>>> 05283ef (Updated Home)
         {/* Language Switcher */}
         <div className="relative" ref={langRef}>
           <button

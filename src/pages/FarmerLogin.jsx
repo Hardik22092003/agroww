@@ -56,9 +56,14 @@ export default function FarmerLogin() {
             name="password"
             onChange={onChangeHandler}
           />
+           <p className="text-end my-2 text-blue-700 underline">Reset Password ?</p>
+         
           <button onClick={clicker} className="bg-green-600 hover:bg-green-700 text-white w-full py-2 rounded">
             Login
           </button>
+          <p className="text-sm hover:underline cursor-pointer text-center" onClick={()=>{
+            window.location.href = "/signup/investor";
+          }}>Signup</p>
         </form>
       </div>
     </div>

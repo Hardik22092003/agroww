@@ -1,70 +1,149 @@
-# Getting Started with Create React App
+# Agroww 🌱
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Agroww** is a cutting-edge **farming investment platform** designed to bridge the gap between investors and agriculture. It enables users to invest in agricultural farms based on **shares**, and earn profits once the produce is sold. This model empowers both farmers and investors — bringing transparency, opportunity, and sustainability to the agri-investment ecosystem.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 📊 **Investment by Shares**: Investors can invest in farms by purchasing shares, each representing a portion of the farm's production.
+- 💰 **Profit Distribution**: Once the produce is sold, profits are calculated and distributed based on shareholding.
+- 🌾 **Farm Management**: Real-time data on farm activities, investments, and expected returns.
+- 🧾 **Transaction History**: View past investments and profit summaries.
+- 🔐 **Secure Authentication**: Investor access is secured and authenticated.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## 🌐 Live Website
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🔗 [https://agroww.vercel.app](https://agroww.vercel.app)
 
-### `npm test`
+Visit the deployed frontend of Agroww to explore the platform and test its features in real time.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔧 Backend
+- **Spring Boot**: Fast, production-ready RESTful API development.
+- **Docker**: Containerized deployment for scalability and environment consistency.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🗄️ Database
+- **H2 Database**: Lightweight and in-memory DB for development and testing.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🌐 Frontend
+- **React.js**: Dynamic and responsive UI for investor and admin interfaces.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
+- Docker
+- Java 17+
+- Node.js and npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Clone the Repository
+\`\`\`bash
+git clone https://github.com/your-username/agroww.git
+cd agroww
+\`\`\`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend Setup
+\`\`\`bash
+cd backend
+./mvnw clean install
+docker build -t agroww-backend .
+docker run -p 8080:8080 agroww-backend
+\`\`\`
 
-## Learn More
+### Frontend Setup
+\`\`\`bash
+cd frontend
+npm install
+npm start
+\`\`\`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📡 API Documentation
 
-### Code Splitting
+Access the live API documentation using Swagger UI here:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔗 [https://agroww.onrender.com/swagger-ui/index.html](https://agroww.onrender.com/swagger-ui/index.html)
 
-### Analyzing the Bundle Size
+This provides a complete reference for all backend endpoints — including authentication, investment, farm management, and more.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The application is containerized and ready for deployment using Docker.
 
-### Advanced Configuration
+- 🐳 **Docker Image**: Available at  
+  🔗 [https://hub.docker.com/repository/docker/harry8080/farmer-deployment](https://hub.docker.com/repository/docker/harry8080/farmer-deployment)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To pull and run the image:
 
-### Deployment
+\`\`\`bash
+docker pull harry8080/farmer-deployment
+docker run -p 8080:8080 harry8080/farmer-deployment
+\`\`\`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can integrate this with a frontend app or access the backend directly via REST endpoints.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ ## 🎥 Demo Video
+
+>
+
+[![Watch Video Demonstration by Clicking Here]](https://drive.google.com/file/d/1q2I5uVieTsvrfHbZQ_UgT8acLMvvxXT6/view?usp=sharing)
+
+
+---
+
+## 📌 Project Structure
+
+\`\`\`
+agroww/
+│
+├── backend/              # Spring Boot application
+│   ├── src/
+│   └── Dockerfile
+│
+├── frontend/             # React app
+│   ├── src/
+│   └── public/
+│
+└── README.md
+\`\`\`
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please fork the repo and submit a pull request.
+
+1. Fork the project  
+2. Create your feature branch (\`git checkout -b feature/FarmStats\`)  
+3. Commit your changes (\`git commit -m 'Add new farm statistics section'\`)  
+4. Push to the branch (\`git push origin feature/FarmStats\`)  
+5. Open a Pull Request
+
+---
+
+## 📃 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📬 Contact
+
+Have questions or feedback?
+
+- Project Maintainer: [Madem Venkata Aditya Prakash](mailto:mademaditya@gmail.com), Hardik Sahu, Manas Chaturvedi
+- GitHub: [github.com/Diordi1](https://github.com/Diordi1)
+
+---
+
+> *Agroww — Growing agriculture through collective investment.*

@@ -43,7 +43,7 @@ Visit the deployed frontend of Agroww to explore the platform and test its featu
 
 ### Clone the Repository
 \`\`\`bash
-git clone https://github.com/your-username/agroww.git
+git clone https://github.com/Hardik22092003/agroww.git
 cd agroww
 \`\`\`
 

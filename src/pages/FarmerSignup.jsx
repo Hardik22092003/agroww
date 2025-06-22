@@ -17,8 +17,7 @@ function FarmerSignup() {
 
     axios.post("https://agrow.onrender.com/farmer/adduser", details)
       .then((res) => {
-        console.log(res.data);
-
+     
         console.log("Signup successful");
         window.location.href = "/login/farmer";
         toast.success("Signup Successful", {

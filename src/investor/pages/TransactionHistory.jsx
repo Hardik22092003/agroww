@@ -11,7 +11,7 @@ export default function TransactionHistory() {
   ];
 let [contracts,setContracts]=useState([]);
  useEffect(()=>{
-            axios.get(`https://agroww.onrender.com/investor/${localStorage.getItem("username")}/investedin`).then((res)=>{
+            axios.get(`https://agrow.onrender.com/investor/${localStorage.getItem("username")}/investedin`).then((res)=>{
                     console.log(res.data);
                     setContracts(res.data);
                 }).catch((err)=>{

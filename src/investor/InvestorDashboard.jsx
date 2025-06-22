@@ -102,7 +102,7 @@ export default function InvestorDashboard() {
         farmerName: ""
     });
         useEffect(()=>{
-            axios.get(`https://agroww.onrender.com/investor/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
+            axios.get(`https://agrow.onrender.com/investor/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
                     console.log(res.data);
                     setContracts(res.data);
                 }).catch((err)=>{

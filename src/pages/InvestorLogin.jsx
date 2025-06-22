@@ -15,7 +15,7 @@ let [isLoading, setIsLoading] = useState(false);
           alert("Please fill in all fields");
           return;
         }
-        axios.post("https://agroww.onrender.com/investor/login", details)
+        axios.post("https://agrow.onrender.com/investor/login", details)
           .then((res) => {
             console.log(res.data);
     

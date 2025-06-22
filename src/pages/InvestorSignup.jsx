@@ -15,7 +15,7 @@ function InvestorSignup() {
           return;
         }
          setIsLoading(true);
-        axios.post("https://agroww.onrender.com/investor/adduser", details)
+        axios.post("https://agrow.onrender.com/investor/adduser", details)
           .then((res) => {
             
                 

@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
     useEffect(() => {
-      axios.get("https://agroww.onrender.com/farmer/h1")
+      axios.get("https://agrow.onrender.com/farmer/h1")
     }, []);
   return (
    <div className="font-sans bg-[#f1fdf8] min-h-screen">

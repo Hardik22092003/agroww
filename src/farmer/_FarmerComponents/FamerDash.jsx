@@ -1,7 +1,7 @@
 import axios from "axios";
 function FarmerDashComp() {
     let getAllDocs=()=>{
-            axios.get("https://agroww.onrender.com/farmer/admin1/allcontracts").then((res)=>{
+            axios.get("https://agrow.onrender.com/farmer/admin1/allcontracts").then((res)=>{
                 console.log(res.data);
 
             }).catch((err)=>{

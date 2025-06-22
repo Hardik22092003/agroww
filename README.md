@@ -68,7 +68,7 @@ npm start
 
 Access the live API documentation using Swagger UI here:
 
-🔗 [https://agroww.onrender.com/swagger-ui/index.html](https://agroww.onrender.com/swagger-ui/index.html)
+🔗 [https://agrow.onrender.com/swagger-ui/index.html](https://agrow.onrender.com/swagger-ui/index.html)
 
 This provides a complete reference for all backend endpoints — including authentication, investment, farm management, and more.
 

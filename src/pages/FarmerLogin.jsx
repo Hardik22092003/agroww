@@ -15,7 +15,7 @@ export default function FarmerLogin() {
       alert("Please fill in all fields");
       return;
     }
-    axios.post("https://agroww.onrender.com/farmer/login", details)
+    axios.post("https://agrow.onrender.com/farmer/login", details)
       .then((res) => {
         console.log(res.data);
 

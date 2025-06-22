@@ -7,7 +7,7 @@ function GetAllContracts() {
   
    
     useEffect(()=>{
-        axios.get(`https://agroww.onrender.com/farmer/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
+        axios.get(`https://agrow.onrender.com/farmer/${localStorage.getItem("username")}/allcontracts`).then((res)=>{
                 console.log(res.data);
                 setContracts(res.data);
             }).catch((err)=>{

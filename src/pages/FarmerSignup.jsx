@@ -15,7 +15,7 @@ function FarmerSignup() {
     }
     e.preventDefault();
 
-    axios.post("https://agroww.onrender.com/farmer/adduser", details)
+    axios.post("https://agrow.onrender.com/farmer/adduser", details)
       .then((res) => {
         console.log(res.data);
 

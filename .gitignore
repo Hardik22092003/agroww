@@ -1,7 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+# Ignore node_modules at root and any nested workspace (e.g. frontend/, backend/)
+node_modules/
+**/node_modules/
 /.pnp
 .pnp.js
 
@@ -13,10 +15,27 @@
 
 # misc
 .DS_Store
+
+# Environment & secret files (ignore all real envs)
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+*.env
+*.env.*
+backend/.env
+backend/.env.development
+backend/.env.local
+backend/.env.development.local
+backend/.env.test.local
+backend/.env.production.local
+backend/*.env
+backend/*.env.*
+
+# Allow template examples to be tracked
+!/.env.example
+!backend/.env.example
 
 npm-debug.log*
 yarn-debug.log*

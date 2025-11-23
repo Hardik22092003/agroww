@@ -1,149 +1,102 @@
-# Agroww 🌱
+<h1 align="center">Agroww</h1>
+<p align="center">Connecting Farmers & Investors through fractional farmland ownership.</p>
 
-**Agroww** is a cutting-edge **farming investment platform** designed to bridge the gap between investors and agriculture. It enables users to invest in agricultural farms based on **shares**, and earn profits once the produce is sold. This model empowers both farmers and investors — bringing transparency, opportunity, and sustainability to the agri-investment ecosystem.
+## Monorepo Layout
 
----
+```
+agroww/
+	backend/              # Express API (Auth, Users, Contracts, etc.)
+		routes/
+		models/
+		middleware/
+		config/
+	frontend/             # React (CRA) app with Tailwind CSS
+		public/
+		src/
+			admin/
+			farmer/
+			investor/
+			components/
+			pages/
+	build/                # Production build output (generated)
+```
 
-## 🚀 Features
+Legacy root `src/` has been migrated into `frontend/src/` and can be safely removed (now done) to keep a clean two‑folder top level: `backend` + `frontend`.
 
-- 📊 **Investment by Shares**: Investors can invest in farms by purchasing shares, each representing a portion of the farm's production.
-- 💰 **Profit Distribution**: Once the produce is sold, profits are calculated and distributed based on shareholding.
-- 🌾 **Farm Management**: Real-time data on farm activities, investments, and expected returns.
-- 🧾 **Transaction History**: View past investments and profit summaries.
-- 🔐 **Secure Authentication**: Investor access is secured and authenticated.
+## Backend
 
----
-## 🌐 Live Website
-
-🔗 [https://agroww.vercel.app](https://agroww.vercel.app)
-
-Visit the deployed frontend of Agroww to explore the platform and test its features in real time.
-
-
-## 🛠️ Tech Stack
-
-### 🔧 Backend
-- **Spring Boot**: Fast, production-ready RESTful API development.
-- **Docker**: Containerized deployment for scalability and environment consistency.
-
-### 🗄️ Database
-- **H2 Database**: Lightweight and in-memory DB for development and testing.
-
-### 🌐 Frontend
-- **React.js**: Dynamic and responsive UI for investor and admin interfaces.
-
----
-
-## 📦 Installation
-
-### Prerequisites
-- Docker
-- Java 17+
-- Node.js and npm
-
-### Clone the Repository
-\`\`\`bash
-git clone https://github.com/Hardik22092003/agroww.git
-cd agroww
-\`\`\`
-
-### Backend Setup
-\`\`\`bash
+1. Install deps
+```bash
 cd backend
-./mvnw clean install
-docker build -t agroww-backend .
-docker run -p 8080:8080 agroww-backend
-\`\`\`
+npm install
+```
+2. Create a `.env` (see `backend/README.md` for variables).
+3. Run dev server
+```bash
+npm start
+```
+API base: `http://localhost:5000/api`.
 
-### Frontend Setup
-\`\`\`bash
+## Frontend
+
+1. Install deps
+```bash
 cd frontend
 npm install
+```
+2. Start dev server
+```bash
 npm start
-\`\`\`
+```
+Dev server: `http://localhost:3000`.
+
+### Scripts
+Frontend (`frontend/package.json`): `start`, `build`, `test`, `eject`.
+Backend may define its own scripts (see backend README).
+
+## Tech Stack
+Frontend: React 19, React Router v7, Tailwind CSS, Axios, Recharts
+Backend: Node.js, Express, JWT Auth, Mongoose (MongoDB)
+
+## Tailwind Configuration
+Tailwind scans `frontend/src/**/*.{js,jsx,ts,tsx}` and `public/index.html`. If you add new directories under `frontend/src`, they're already covered.
+
+## Development Flow
+1. Start backend first (port 5000)
+2. Start frontend (port 3000)
+3. Login / role selection flows hit `/api/auth` endpoints
+
+## Environment Variables (Backend Example)
+```
+PORT=5000
+MONGO_URI=mongodb+srv://...
+JWT_SECRET=change_me
+JWT_EXPIRE=7d
+JWT_REFRESH_SECRET=change_me_refresh
+JWT_REFRESH_EXPIRE=30d
+```
+
+## Build
+```bash
+cd frontend
+npm run build
+```
+Outputs production assets to `/build` at repo root (CRA default).
+
+## Conventions
+- Components grouped by domain (admin, farmer, investor)
+- Reusable UI in `components/`
+- Route-level views in `pages/`
+- Auth tokens stored in `localStorage` (improve later: httpOnly cookies)
+
+## Future Improvements
+- Migrate to Vite for faster builds
+- Add role-based route guards (HOC or layout wrappers)
+- Introduce global state (Zustand/Redux) for auth/session
+- Harden security: refresh token rotation + httpOnly cookies
+
+## License
+Proprietary / Internal (update if open-sourcing).
 
 ---
-
-## 📡 API Documentation
-
-Access the live API documentation using Swagger UI here:
-
-🔗 [https://agrow.onrender.com/swagger-ui/index.html](https://agrow.onrender.com/swagger-ui/index.html)
-
-This provides a complete reference for all backend endpoints — including authentication, investment, farm management, and more.
-
----
-
-## 🚀 Deployment
-
-The application is containerized and ready for deployment using Docker.
-
-- 🐳 **Docker Image**: Available at  
-  🔗 [https://hub.docker.com/repository/docker/harry8080/farmer-deployment](https://hub.docker.com/repository/docker/harry8080/farmer-deployment)
-
-To pull and run the image:
-
-\`\`\`bash
-docker pull harry8080/farmer-deployment
-docker run -p 8080:8080 harry8080/farmer-deployment
-\`\`\`
-
-You can integrate this with a frontend app or access the backend directly via REST endpoints.
-
----
-
- ## 🎥 Demo Video
-
->
-
-[![Watch Video Demonstration by Clicking Here]](https://drive.google.com/file/d/1q2I5uVieTsvrfHbZQ_UgT8acLMvvxXT6/view?usp=sharing)
-
-
----
-
-## 📌 Project Structure
-
-\`\`\`
-agroww/
-│
-├── backend/              # Spring Boot application
-│   ├── src/
-│   └── Dockerfile
-│
-├── frontend/             # React app
-│   ├── src/
-│   └── public/
-│
-└── README.md
-\`\`\`
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please fork the repo and submit a pull request.
-
-1. Fork the project  
-2. Create your feature branch (\`git checkout -b feature/FarmStats\`)  
-3. Commit your changes (\`git commit -m 'Add new farm statistics section'\`)  
-4. Push to the branch (\`git push origin feature/FarmStats\`)  
-5. Open a Pull Request
-
----
-
-## 📃 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 📬 Contact
-
-Have questions or feedback?
-
-- Project Maintainer: [Madem Venkata Aditya Prakash](mailto:mademaditya@gmail.com), Hardik Sahu, Manas Chaturvedi
-- GitHub: [github.com/Diordi1](https://github.com/Diordi1)
-
----
-
-> *Agroww — Growing agriculture through collective investment.*
+Generated and updated during refactor (Aug 2025).
